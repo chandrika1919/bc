@@ -1,0 +1,44 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class LinkedListStringInsertion {
+    public static void main(String[] args) {
+        LinkedList<String> stringList = new LinkedList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        // Insert some initial strings
+        stringList.add("Apple");
+        stringList.add("Banana");
+        stringList.add("Cherry");
+
+        System.out.println("Initial LinkedList: " + stringList);
+
+        // Insert string at the end
+        System.out.print("Enter a string to insert at the end: ");
+        String endString = scanner.nextLine();
+        stringList.add(endString);
+        System.out.println("After inserting at the end: " + stringList);
+
+        // Insert string at the beginning
+        System.out.print("Enter a string to insert at the beginning: ");
+        String beginningString = scanner.nextLine();
+        stringList.addFirst(beginningString);
+        System.out.println("After inserting at the beginning: " + stringList);
+
+        // Insert string at a specific position
+        System.out.print("Enter a string to insert at a specific position: ");
+        String posString = scanner.nextLine();
+        System.out.print("Enter the position (0 to " + stringList.size() + "): ");
+        int pos = scanner.nextInt();
+        scanner.nextLine();  // consume leftover newline
+
+        if (pos >= 0 && pos <= stringList.size()) {
+            stringList.add(pos, posString);
+            System.out.println("After inserting at position " + pos + ": " + stringList);
+        } else {
+            System.out.println("Invalid position!");
+        }
+
+        scanner.close();
+    }
+}
